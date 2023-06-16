@@ -9,7 +9,7 @@ export function Header() {
         <img src={coffelogo} />
 
         <HeaderButtonsContainer>
-          <HeaderButton>
+          <HeaderButton variant='purple'>
             <MapPin size={20} weight="fill" />
             Porto Alegre, RS
           </HeaderButton>

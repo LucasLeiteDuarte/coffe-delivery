@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const HeaderContainer = styled.header`
 display: flex;
@@ -24,7 +24,11 @@ export const HeaderButtonsContainer = styled.div`
   gap: 0.75rem;
 `;
 
-export const HeaderButton = styled.button`
+interface HeaderButtonProps{
+  variant: "purple" | "yellow"
+}
+// o headerbutton recebe  a interfeace com as variantes<HeaderButtonProps> e assim pode aplicar seus theme
+export const HeaderButton = styled.button<HeaderButtonProps>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -42,5 +46,9 @@ export const HeaderButton = styled.button`
 
   font-size: ${({theme})=> theme.textSizes["text-regular-S"]};
 
+  ${({variant, theme})=> css`
+  background: ${theme.colors[`brand-${variant}-light`]};
+  
+  `}
 
 `; 
