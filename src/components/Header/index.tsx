@@ -1,4 +1,4 @@
-import { MapPin } from 'phosphor-react';
+import { MapPin, ShoppingCart } from 'phosphor-react';
 import coffelogo from '../../assests/Logo.svg';
 import { HeaderButton, HeaderButtonsContainer, HeaderContainer } from "./styles";
 
@@ -12,6 +12,10 @@ export function Header() {
           <HeaderButton variant='purple'>
             <MapPin size={20} weight="fill" />
             Porto Alegre, RS
+          </HeaderButton>
+          <HeaderButton variant='yellow'>
+            <ShoppingCart size={20} weight='fill' />
+
           </HeaderButton>
 
         </HeaderButtonsContainer>
