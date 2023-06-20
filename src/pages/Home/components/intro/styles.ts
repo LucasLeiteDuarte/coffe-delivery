@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import introBack from "../../../../assests/IntroBack.png";
+
 
 
 export const IntroContainer = styled.section`
@@ -8,14 +10,18 @@ export const IntroContainer = styled.section`
 
   width: 100%;
   height: 34rem;
-  background: red;
+
+  background: ${()=> `url(${introBack}) no-repeat center`};
+  background-size: cover;
+  
+
 `;
 export const IntroContent= styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 3.5rem;
-  background: pink;
+ 
 
 `;
 

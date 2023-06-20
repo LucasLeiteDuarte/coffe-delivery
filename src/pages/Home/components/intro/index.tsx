@@ -1,3 +1,4 @@
+
 import introImg from "../../../../assests/intro-img.svg";
 import { IntroContainer, IntroContent, IntroTitle, RegularText } from "./styles";
 
