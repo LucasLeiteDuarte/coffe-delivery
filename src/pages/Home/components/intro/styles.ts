@@ -57,5 +57,11 @@ export const IntroTitle = styled(TitleText)`
 margin-bottom:1rem;
 `;
   
-
+export const BenefitsContainer = styled.div `
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr; // duas colunas do mesmo tamnho
+  row-gap: 1.25rem;
+  margin-top: 4.125rem;
+`;
 
