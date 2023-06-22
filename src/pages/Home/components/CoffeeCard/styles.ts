@@ -8,7 +8,8 @@ align-items: center;
 
 width: 100%;
 padding: 1.25rem;
-padding-top: 0;
+padding-top: 0; // com o padding 0 e a margem negativa da imagem faz o efeito de saindo do card
+
 
 background: ${({theme})=> theme.colors["base-card"]};
 border-radius: 6px 36px 6px 36px;
@@ -18,7 +19,30 @@ border-radius: 6px 36px 6px 36px;
 img {
   width: 7.5rem;
   height: 7.5rem;
-  margin-top: -1.25rem;
+  margin-top: -1.25rem; //// com o padding 0 e a margem negativa da imagem faz o efeito de saindo do card
 }
 
+`;
+
+export const Tags = styled.div `
+display: flex;
+align-items: center;
+justify-content: center;
+flex-wrap: wrap;
+
+width: 100%;
+gap: 4px;
+margin-top: 1rem;
+margin-bottom: 1.25rem;
+
+span{
+  font-weight: 700;
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+
+  background: ${({theme})=> theme.colors["brand-yellow-light"]};
+  color: ${({theme})=> theme.colors["brand-yellow-dark"]};
+  font-size: ${({theme})=> theme.textSizes["componentes-tag"]}
+}
 `;
