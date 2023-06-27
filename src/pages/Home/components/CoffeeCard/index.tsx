@@ -1,5 +1,5 @@
 import Amerciano from "../../../../assests/CoffeeImg/Americano.png";
-import { CoffeeCardContainer, Tags } from "./styles";
+import { CoffeeCardContainer, Description, Name, Tags } from "./styles";
 
 export function CoffeeCard() {
   return (
@@ -10,6 +10,9 @@ export function CoffeeCard() {
         <span>Tradicional</span>
         <span>Com leite</span>
       </Tags>
+
+      <Name> Expresso Tradicional </Name>
+      <Description> O tradicional café feito com água que e grãos moídos</Description>
 
 
     </CoffeeCardContainer>

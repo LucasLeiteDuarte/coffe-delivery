@@ -1,10 +1,12 @@
 import styled from "styled-components";
+import { RegularText, TitleText } from "../intro/styles";
 
 export const CoffeeCardContainer = styled.div`
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+text-align: center;
 
 width: 100%;
 padding: 1.25rem;
@@ -46,3 +48,20 @@ span{
   font-size: ${({theme})=> theme.textSizes["componentes-tag"]}
 }
 `;
+
+export const Name = styled(TitleText).attrs({
+  size:"S",
+  color: "subititle",
+  weight: "700",
+})`
+  margin-bottom: 0.5rem;
+
+`;
+
+export const Description = styled(RegularText).attrs({
+  size:"S",
+  color: "label",
+
+})`
+  margin-bottom: 2rem;
+`
