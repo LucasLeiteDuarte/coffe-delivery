@@ -26,4 +26,17 @@ button{
 a{
   text-decoration:none;
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -webkit-appearance: textfield; /* Safari e Chrome */
+  -moz-appearance: textfield; /* Firefox */
+  appearance: textfield; /* Outros navegadores */
+}
+
 `;

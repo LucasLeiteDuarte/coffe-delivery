@@ -67,7 +67,7 @@ export const Description = styled(RegularText).attrs({
 export const CardFooter = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 
   width: 100%;
 
@@ -79,9 +79,35 @@ export const CardFooter = styled.div`
     p{
       line-height: 0.75rem;
     }
+  }
+`;
+export const AddCartWrapper = styled.div`
+  width: 7.5rem;
 
+  > button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 2.375rem;
+    height: 2.375rem;
+
+    border: none;
+    border-radius: 6px;
+    margin-left: 0.3rem;
+    transition: .4s;
+
+    background: ${({theme})=>theme.colors["brand-purple-dark"]};
+    color: ${({theme})=>theme.colors["base-card"]} ;
+
+    &:hover{
+      background: ${({theme})=> theme.colors["brand-purple"]};
+    }
+
+
+
+
+  
 
   }
-
-
 `;
