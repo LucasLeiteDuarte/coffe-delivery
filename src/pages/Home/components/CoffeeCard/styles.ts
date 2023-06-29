@@ -55,7 +55,6 @@ export const Name = styled(TitleText).attrs({
   weight: "700",
 })`
   margin-bottom: 0.5rem;
-
 `;
 
 export const Description = styled(RegularText).attrs({
@@ -65,3 +64,24 @@ export const Description = styled(RegularText).attrs({
 })`
   margin-bottom: 2rem;
 `
+export const CardFooter = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+
+  > div{
+    display: flex;
+    align-items: center;
+    gap: 3px;
+
+    p{
+      line-height: 0.75rem;
+    }
+
+
+  }
+
+
+`;
