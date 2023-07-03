@@ -15,6 +15,14 @@ background: ${({theme})=> theme.colors["base-background"]};
   align-items: center;
   justify-content: space-between;
 }
+// serve para o header se manter fixo no pagina
+position: sticky;
+top: 0;
+left: 0;
+z-index: 5;
+
+
+
 `;
 
 export const HeaderButtonsContainer = styled.div`
@@ -50,5 +58,13 @@ export const HeaderButton = styled.button<HeaderButtonProps>`
   background: ${theme.colors[`brand-${variant}-light`]};
   color: ${theme.colors[`brand-${variant}-dark`]}  
   `}
+
+  ${({ variant, theme}) =>
+    variant === "purple" &&
+    css`
+    svg {
+      color: ${theme.colors["brand-purple"]};
+    }
+    `}
 
 `; 
