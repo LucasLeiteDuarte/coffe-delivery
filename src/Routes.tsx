@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { DefaultLayoult } from './layouts/DefaultLayout';
-import { CopleteOrderPage } from './pages/CompleteOrder';
+import { CompleteOrderPage } from './pages/CompleteOrder';
 import { HomePage } from './pages/Home';
 
 
@@ -9,7 +9,7 @@ export function Router() {
     <Routes>
       <Route path='/' element={<DefaultLayoult />}>
         <Route path='/' element={<HomePage />} />
-        <Route path='/Complement' element={< CopleteOrderPage />} />
+        <Route path='/CompleteOrder' element={< CompleteOrderPage />} />
       </Route>
     </Routes >
   )
