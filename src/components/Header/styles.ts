@@ -48,7 +48,7 @@ export const HeaderButton = styled.button<HeaderButtonProps>`
 
   border-radius: 6px;
   border: none;
-  
+
   padding: 0 0.5rem;
   position: relative;
 
@@ -56,7 +56,7 @@ export const HeaderButton = styled.button<HeaderButtonProps>`
 
   ${({variant, theme})=> css`
   background: ${theme.colors[`brand-${variant}-light`]};
-  color: ${theme.colors[`brand-${variant}-dark`]}  
+  color: ${theme.colors[`brand-${variant}-dark`]}
   `}
 
   ${({ variant, theme}) =>
@@ -67,4 +67,4 @@ export const HeaderButton = styled.button<HeaderButtonProps>`
     }
     `}
 
-`; 
+`;
