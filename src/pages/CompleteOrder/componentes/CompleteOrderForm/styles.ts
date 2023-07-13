@@ -34,3 +34,9 @@ export const AddressFormContainer = styled.div `
     grid-column: span 2; // span para espandir duas colunas á patirar da que ele está
   }
 `;
+export const PaymentMethodOptiosContainer = styled.div `
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); //repetir 3 colunas de 1fr
+  gap: 075rem;
+
+`;
