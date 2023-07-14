@@ -37,6 +37,6 @@ export const AddressFormContainer = styled.div `
 export const PaymentMethodOptiosContainer = styled.div `
   display: grid;
   grid-template-columns: repeat(3, 1fr); //repetir 3 colunas de 1fr
-  gap: 075rem;
+  gap: 0.75rem;
 
 `;

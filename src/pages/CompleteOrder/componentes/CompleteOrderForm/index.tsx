@@ -3,6 +3,7 @@ import { useTheme } from "styled-components";
 import { TitleText } from "../../../Home/components/intro/styles";
 import { SectionTitle } from "../SectionTitle/inde";
 import { AddresForm } from "./AddressForm";
+import { PaymentMethodOptios } from "./PaymantMethodOptions";
 import { CompleteOrderFormContainer, FormSectionContainer } from "./styles";
 
 export function CompleteOrderForm() {
@@ -28,7 +29,7 @@ export function CompleteOrderForm() {
           subtitle="O pagamento é feito na entrega, Escolha a forma que deseja pagar"
           icon={<CurrencyDollar color={colors["brand-purple"]} size={22} />}
         />
-
+        <PaymentMethodOptios />
       </FormSectionContainer>
     </CompleteOrderFormContainer>
   );
