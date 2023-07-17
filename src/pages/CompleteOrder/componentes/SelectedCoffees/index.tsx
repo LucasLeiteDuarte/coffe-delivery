@@ -1,4 +1,5 @@
 import { TitleText } from "../../../Home/components/intro/styles";
+import { CoffeeCartCard } from "../CoffeeCartCard";
 import { DetailsContainer, SelectedCoffeesContainer } from "./styles";
 
 export function SelectedCoffees() {
@@ -9,7 +10,7 @@ export function SelectedCoffees() {
       </TitleText>
 
       <DetailsContainer>
-        <p>Itens</p>
+        <CoffeeCartCard />
       </DetailsContainer>
     </SelectedCoffeesContainer>
   )
