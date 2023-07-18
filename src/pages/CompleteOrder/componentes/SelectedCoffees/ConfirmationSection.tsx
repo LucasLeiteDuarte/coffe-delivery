@@ -1,3 +1,4 @@
+import { Button } from "../../../../components/Buttton";
 import { RegularText } from "../../../Home/components/intro/styles";
 import { ConfirmationSectionContainer } from "./styles";
 
@@ -20,6 +21,8 @@ export function ConfirmationSection() {
           R$ 29,90
         </RegularText>
       </div>
+
+      <Button text="Confirmar Pedido" />
     </ConfirmationSectionContainer>
   )
 }
