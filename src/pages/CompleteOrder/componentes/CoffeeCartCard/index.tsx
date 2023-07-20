@@ -7,7 +7,8 @@ export function CoffeeCartCard() {
   return (
     <CoffeeCartCardContainer>
       <div>
-        <img src="" alt="" />
+
+        <img src="https://static.vecteezy.com/ti/vetor-gratis/p1/8064074-copo-de-cafe-quente-icone-de-cafe-isolado-em-fundo-branco-copo-cafe-ilustracao-sinal-simples-vetor.jpg" alt="" />
         <div>
           <RegularText color="subtitle">Expresso Tradicional </RegularText>
           <ActionsContainer>
