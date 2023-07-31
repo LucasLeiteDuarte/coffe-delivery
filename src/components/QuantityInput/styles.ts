@@ -42,6 +42,7 @@ input{
 export const IconWrapper = styled.button.attrs({
   type: "button",
 })`
+
 width: 0.875rem;
 height: 0.875rem;
 

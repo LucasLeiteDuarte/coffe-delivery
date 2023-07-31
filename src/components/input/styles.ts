@@ -8,7 +8,6 @@ export const InputStyleContainer = styled.input`
   border-radius: 4px;
   transition: 0.4s;
 
- 
   &:focus {
     border-color: ${({theme })=> theme.colors["brand-yellow-dark"]};
   }
