@@ -2,18 +2,15 @@ import { produce } from "immer";
 import { ReactNode, createContext, useState } from "react";
 import { Coffee } from "../pages/Home/components/CoffeeCard";
 
-// Definindo uma interface para os itens do carrinho
 export interface CartItem extends Coffee {
   quantity: number; // Quantidade de um determinado item no carrinho
 }
 
-// Definindo o tipo para o contexto do carrinho, que conterá os itens do carrinho e uma função para adicionar itens ao carrinho
 interface CartContextType {
   cartItems: CartItem[]; // Array de itens do carrinho
   addCoffeeToCart: (coffee: CartItem) => void; // Função para adicionar um item do tipo CartItem ao carrinho
 }
 
-// Definindo o tipo para as propriedades do provedor do contexto do carrinho
 interface CartContextProviderProps {
   children: ReactNode; // Componentes filhos que utilizarão o contexto do carrinho
 }
@@ -48,7 +45,6 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     setCartItems(newCart);
   }
 
-  // Retorna o provedor do contexto do carrinho, passando o valor do estado atual do carrinho e a função de adição de itens
   return (
     <CartContext.Provider value={{ cartItems, addCoffeeToCart }}>
       {children}
