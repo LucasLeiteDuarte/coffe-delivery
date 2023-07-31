@@ -35,7 +35,7 @@ export const HeaderButtonsContainer = styled.div`
 interface HeaderButtonProps{
   variant: "purple" | "yellow"
 }
-// o headerbutton recebe  a interfeace com as variantes<HeaderButtonProps> e assim pode aplicar seus theme
+// o headerbutton recebe a interfeace com as variantes<HeaderButtonProps> e assim pode aplicar seus theme
 export const HeaderButton = styled.button<HeaderButtonProps>`
   display: flex;
   align-items: center;
