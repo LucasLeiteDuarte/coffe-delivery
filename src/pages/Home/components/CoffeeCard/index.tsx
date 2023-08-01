@@ -1,7 +1,8 @@
 import { ShoppingCart } from "phosphor-react";
 import { QuantityInput } from "../../../../components/QuantityInput";
 
-import { useCart } from "../../../../hooks/usecart";
+import { useState } from "react";
+import { useCart } from "../../../../hooks/useCart";
 import { formatMoney } from "../../../../utils/FormatMoney";
 import { RegularText, TitleText } from "../intro/styles";
 import { AddCartWrapper, CardFooter, CoffeeCardContainer, Description, Name, Tags } from "./styles";
@@ -20,15 +21,25 @@ interface CoffeeCardProps {
 }
 
 export function CoffeeCard({ coffee }: CoffeeCardProps) {
-  // Obtém a função addCoffeeToCart do hook useCart para adicionar o item ao carrinho
-  const { addCoffeeToCart } = useCart();
+  const [quantity, setQuantity] = useState<number>(0);
+
+  function handleIncrease() {
+    setQuantity((state) => state + 1)
+  }
+  function handleDecrease() {
+    if (quantity > 0) {  //Verfica se a quantidade é maior que 0 antes de deminuir.
+      setQuantity((state) => state - 1)
+    }
+  }
+
+  const { addCoffeeToCart } = useCart();// Obtém a função addCoffeeToCart do hook useCart para adicionar o item ao carrinho
 
   // Função para adicionar o item atual ao carrinho quando o botão é clicado
   function handleAddToCart() {
     // Cria um novo objeto coffeeToAdd, copiando todas as propriedades do coffee atual e adicionando a propriedade quantity com o valor inicial de 1
     const coffeeToAdd = {
       ...coffee,
-      quantity: 1
+      quantity
     }
     // Chama a função addCoffeeToCart do contexto do carrinho para adicionar o item ao carrinho
     addCoffeeToCart(coffeeToAdd)
@@ -59,7 +70,11 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
         </div>
 
         <AddCartWrapper>
-          <QuantityInput />
+          <QuantityInput
+            onIncrease={handleIncrease}
+            onDecrease={handleDecrease}
+            quantity={quantity}
+          />
           <button onClick={handleAddToCart} >
             <ShoppingCart size={22} weight="fill" />
           </button>
