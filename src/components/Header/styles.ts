@@ -54,9 +54,29 @@ export const HeaderButton = styled.button<HeaderButtonProps>`
 
   font-size: ${({theme})=> theme.textSizes["text-regular-S"]};
 
+  span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+
+    position: absolute;
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 50%;
+    top: calc(-1.25rem / 2);
+    right: calc(-1.25rem / 2);
+    color: ${({theme})=> theme.colors["base-white"]};
+  }
+
   ${({variant, theme})=> css`
   background: ${theme.colors[`brand-${variant}-light`]};
-  color: ${theme.colors[`brand-${variant}-dark`]}
+  color: ${theme.colors[`brand-${variant}-dark`]};
+
+  span{
+    background: ${theme.colors[`brand-${variant}-dark`]};
+  }
   `}
 
   ${({ variant, theme}) =>
