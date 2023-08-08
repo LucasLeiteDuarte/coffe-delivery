@@ -1,5 +1,5 @@
 import { produce } from "immer";
-import { ReactNode, createContext, useState } from "react";
+import { ReactNode, createContext, useEffect, useState } from "react";
 import { Coffee } from "../pages/Home/components/CoffeeCard";
 
 export interface CartItem extends Coffee {
@@ -9,6 +9,7 @@ export interface CartItem extends Coffee {
 interface CartContextType {
   cartItems: CartItem[]; // Array de itens do carrinho
   cartQuantity: number;
+  cartItemsTotal: number;
   addCoffeeToCart: (coffee: CartItem) => void; // Função para adicionar um item do tipo CartItem ao carrinho
   changeCartItemQuantity: (
     cartItemId: number,
@@ -23,15 +24,28 @@ interface CartContextProviderProps {
   children: ReactNode; // Componentes filhos que utilizarão o contexto do carrinho
 }
 
+const COFFEE_ITEMS_STORAGE_KEY = "coffeeDelivery:cartItems";
+
+
 // Criando o contexto do carrinho
 export const CartContext = createContext({} as CartContextType);
 
 // Componente que irá prover o contexto do carrinho para os componentes filhos
 export function CartContextProvider({ children }: CartContextProviderProps) {
   // State para armazenar os itens do carrinho
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [cartItems, setCartItems] = useState<CartItem[]>(() => {
+    const storedCartItems = localStorage.getItem(COFFEE_ITEMS_STORAGE_KEY);
+    if (storedCartItems) {
+      return JSON.parse(storedCartItems)
+    }
+    return [];
+  });
 
   const cartQuantity = cartItems.length;
+
+  const cartItemsTotal = cartItems.reduce((total, CartItem) => {
+    return total + CartItem.price * CartItem.quantity;
+  }, 0)
 
   // Função para adicionar um item ao carrinho ou incrementar a quantidade caso já exista
   function addCoffeeToCart(coffee: CartItem) {
@@ -88,15 +102,21 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     setCartItems([]);
   }
 
+  useEffect(() => {
+    localStorage.setItem(COFFEE_ITEMS_STORAGE_KEY, JSON.stringify(cartItems));
+  }, [cartItems]);
+
 
   return (
     <CartContext.Provider value={{
       cartItems,
       cartQuantity,
+      cartItemsTotal,
       addCoffeeToCart,
       changeCartItemQuantity,
       removeCartItem,
       cleanCart,
+
     }}
     >
       {children}
