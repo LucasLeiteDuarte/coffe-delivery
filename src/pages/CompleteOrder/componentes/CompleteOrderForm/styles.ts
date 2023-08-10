@@ -12,7 +12,7 @@ export const FormSectionContainer = styled(SectionBaseStyle)`
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  
+
 `;
 export const AddressFormContainer = styled.div `
   display: grid;
@@ -30,9 +30,25 @@ export const AddressFormContainer = styled.div `
   .street {
     grid-column: span 3;
   }
-  .complement{
+
+  .complement-input-container{
     grid-column: span 2; // span para espandir duas colunas á patirar da que ele está
+    position: relative;
   }
+  .complement{
+    
+    width: 21.7rem;
+ 
+  }
+  .optional-text {
+    position: absolute;
+    bottom: 0.3rem;
+    right: 1.2rem;
+    font-size: 0.8em;
+    transform: translateY(-50%);
+    color:${({theme})=> theme.colors["base-label"]};
+  }
+
 `;
 export const PaymentMethodOptiosContainer = styled.div `
   display: grid;
