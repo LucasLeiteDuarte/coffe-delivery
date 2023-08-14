@@ -6,7 +6,14 @@ import { SelectedCoffees } from "./componentes/SelectedCoffees";
 import { CompleteOrderContainer } from "./styles";
 
 const confirmOrderFormValidationSchema = zod.object({
-  cep: zod.string().min(1, "Informe o CEP")
+  cep: zod.string().min(1, "Informe o CEP"),
+  street: zod.string().min(1, "Informe a Rua"),
+  number: zod.string().min(1, "Informe o Numero"),
+  complement: zod.string(),
+  district: zod.string().min(1, "Informe o Bairro"),
+  city: zod.string().min(1, "Informe a Cidade"),
+  uf: zod.string().min(1, "informe a UF"),
+
 });
 
 export type OrderData = zod.infer<typeof confirmOrderFormValidationSchema>;

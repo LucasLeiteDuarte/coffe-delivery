@@ -1,12 +1,13 @@
 import { PaymentMethodInput } from './../PaymentMethodInput/index';
-import { PaymentMethodOptiosContainer } from "./styles";
+import { PaymentMethodOptionsContainer } from './styles';
+
 
 export function PaymentMethodOptios() {
   return (
-    <PaymentMethodOptiosContainer>
+    <PaymentMethodOptionsContainer>
       <PaymentMethodInput />
       <PaymentMethodInput />
       <PaymentMethodInput />
-    </PaymentMethodOptiosContainer>
+    </PaymentMethodOptionsContainer>
   )
 }
