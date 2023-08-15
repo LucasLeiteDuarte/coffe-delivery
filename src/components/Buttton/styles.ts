@@ -13,7 +13,7 @@ export const ButtonContainer = styled.button`
   text-transform: uppercase;
   transition: 0.4s;
   line-height: 1.3rem;
-  margin-top: 0.7rem; // como so tem um tipo de button no projeto, coloquei esse magin-top, mesmo nao colocando magin em componentes 
+  margin-top: 0.7rem; // como so tem um tipo de button no projeto, tem esse margin-top, mesmo nao colocando magin em componentes.
 
   &:disabled {
     opacity: 0.7;

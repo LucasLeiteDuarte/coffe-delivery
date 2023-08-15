@@ -1,123 +1,140 @@
-import { produce } from "immer";
-import { ReactNode, createContext, useEffect, useState } from "react";
-import { Coffee } from "../pages/Home/components/CoffeeCard";
+import { produce } from "immer"; //A biblioteca immer é utilizada para produzir um novo estado imutável ao modificar os itens do carrinho. Isso garante que as mudanças no estado sejam gerenciadas de maneira segura e eficiente.
+import { ReactNode, createContext, useEffect, useState } from "react"; // Importa funcionalidades do React
+import { Coffee } from "../pages/Home/components/CoffeeCard"; // Importa a interface Coffee
 
+// Interface para os itens no carrinho
 export interface CartItem extends Coffee {
   quantity: number; // Quantidade de um determinado item no carrinho
 }
 
+// Interface para o contexto do carrinho
 interface CartContextType {
-  cartItems: CartItem[]; // Array de itens do carrinho
-  cartQuantity: number;
-  cartItemsTotal: number;
-  addCoffeeToCart: (coffee: CartItem) => void; // Função para adicionar um item do tipo CartItem ao carrinho
+  cartItems: CartItem[]; // Array de itens no carrinho
+  cartQuantity: number; // Total de itens no carrinho
+  cartItemsTotal: number; // Total do valor dos itens no carrinho
+  addCoffeeToCart: (coffee: CartItem) => void; // Função para adicionar um item ao carrinho
   changeCartItemQuantity: (
     cartItemId: number,
     type: "increase" | "decrease"
-  ) => void;
-  removeCartItem: (cartItemId: number) => void;
-  cleanCart: () => void;
-
+  ) => void; // Função para alterar a quantidade de um item no carrinho
+  removeCartItem: (cartItemId: number) => void; // Função para remover um item do carrinho
+  cleanCart: () => void; // Função para limpar o carrinho
 }
 
+// Interface para os props do provedor do contexto do carrinho
 interface CartContextProviderProps {
-  children: ReactNode; // Componentes filhos que utilizarão o contexto do carrinho
+  children: ReactNode; // Componentes filhos
 }
 
-const COFFEE_ITEMS_STORAGE_KEY = "coffeeDelivery:cartItems";
+const COFFEE_ITEMS_STORAGE_KEY = "coffeeDelivery:cartItems"; // Chave para armazenar no localStorage
 
-
-// Criando o contexto do carrinho
+// Criação do contexto do carrinho
 export const CartContext = createContext({} as CartContextType);
 
-// Componente que irá prover o contexto do carrinho para os componentes filhos
+// Componente provedor do contexto do carrinho
 export function CartContextProvider({ children }: CartContextProviderProps) {
-  // State para armazenar os itens do carrinho
+  // Estado local para os itens no carrinho
   const [cartItems, setCartItems] = useState<CartItem[]>(() => {
+    // Carrega os itens do carrinho do localStorage ou inicia um array vazio
     const storedCartItems = localStorage.getItem(COFFEE_ITEMS_STORAGE_KEY);
     if (storedCartItems) {
-      return JSON.parse(storedCartItems)
+      return JSON.parse(storedCartItems);
     }
     return [];
   });
 
+  // Calcula o total de itens no carrinho
   const cartQuantity = cartItems.length;
 
+  // Calcula o valor total dos itens no carrinho
   const cartItemsTotal = cartItems.reduce((total, CartItem) => {
     return total + CartItem.price * CartItem.quantity;
-  }, 0)
+  }, 0);
 
-  // Função para adicionar um item ao carrinho ou incrementar a quantidade caso já exista
+  // Função para adicionar um item ao carrinho
   function addCoffeeToCart(coffee: CartItem) {
-    // Verifica se o item já existe no carrinho
     const coffeeAlreadyExistsInCart = cartItems.findIndex(
       (cartItem) => cartItem.id === coffee.id
     );
 
-    // Utiliza o pacote "immer" para criar um novo estado imutável com os itens do carrinho
+    // Cria um novo estado do carrinho usando o Immer
     const newCart = produce(cartItems, (draft) => {
-      // Caso o item não exista no carrinho, adiciona-o
+      // Se o café ainda não estiver no carrinho, adiciona-o
       if (coffeeAlreadyExistsInCart < 0) {
         draft.push(coffee);
       } else {
-        // Caso o item já exista, incrementa a quantidade
+        // Se o café já estiver no carrinho, aumenta a quantidade
         draft[coffeeAlreadyExistsInCart].quantity += coffee.quantity;
       }
     });
 
-    // Atualiza o estado do carrinho com o novo estado imutável
+    // Atualiza o estado do carrinho
     setCartItems(newCart);
   }
 
+  // Função para alterar a quantidade de um item no carrinho
   function changeCartItemQuantity(
     cartItemId: number,
-    type: 'increase' | 'decrease'
+    type: "increase" | "decrease"
   ) {
+    // Cria um novo estado do carrinho usando o Immer
     const newCart = produce(cartItems, (draft) => {
       const coffeeExistsInCart = cartItems.findIndex(
         (cartItem) => cartItem.id === cartItemId
       );
       if (coffeeExistsInCart >= 0) {
-        const item = draft[coffeeExistsInCart]
+        const item = draft[coffeeExistsInCart];
+        // Aumenta ou diminui a quantidade com base no tipo
         draft[coffeeExistsInCart].quantity =
           type === "increase" ? item.quantity + 1 : item.quantity - 1;
       }
     });
+
+    // Atualiza o estado do carrinho
     setCartItems(newCart);
   }
+
+  // Função para remover um item do carrinho
   function removeCartItem(cartItemId: number) {
+    // Cria um novo estado do carrinho usando o Immer
     const newCart = produce(cartItems, (draft) => {
       const coffeeExistsInCart = cartItems.findIndex(
         (cartItem) => cartItem.id === cartItemId
       );
 
       if (coffeeExistsInCart >= 0) {
+        // Remove o item do carrinho
         draft.splice(coffeeExistsInCart, 1);
       }
     });
 
+    // Atualiza o estado do carrinho
     setCartItems(newCart);
   }
+
+  // Função para limpar o carrinho
   function cleanCart() {
+    // Remove todos os itens do carrinho
     setCartItems([]);
   }
 
+  // Efeito para salvar os itens do carrinho no armazenamento local
   useEffect(() => {
     localStorage.setItem(COFFEE_ITEMS_STORAGE_KEY, JSON.stringify(cartItems));
   }, [cartItems]);
 
-
+  // Retorna o provedor do contexto com as funções e valores necessários
   return (
-    <CartContext.Provider value={{
-      cartItems,
-      cartQuantity,
-      cartItemsTotal,
-      addCoffeeToCart,
-      changeCartItemQuantity,
-      removeCartItem,
-      cleanCart,
-
-    }}
+    <CartContext.Provider
+      value={{
+        cartItems,
+        cartQuantity,
+        cartItemsTotal,
+        addCoffeeToCart,
+        changeCartItemQuantity,
+        removeCartItem,
+        cleanCart,
+      }}
     >
       {children}
     </CartContext.Provider>
