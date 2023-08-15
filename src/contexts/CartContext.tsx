@@ -1,18 +1,19 @@
 import { produce } from "immer"; //A biblioteca immer é utilizada para produzir um novo estado imutável ao modificar os itens do carrinho. Isso garante que as mudanças no estado sejam gerenciadas de maneira segura e eficiente.
-import { ReactNode, createContext, useEffect, useState } from "react"; // Importa funcionalidades do React
-import { Coffee } from "../pages/Home/components/CoffeeCard"; // Importa a interface Coffee
+import { ReactNode, createContext, useEffect, useState } from "react";
+import { Coffee } from "../pages/Home/components/CoffeeCard";
 
-// Interface para os itens no carrinho
+
 export interface CartItem extends Coffee {
   quantity: number; // Quantidade de um determinado item no carrinho
 }
 
-// Interface para o contexto do carrinho
+
 interface CartContextType {
   cartItems: CartItem[]; // Array de itens no carrinho
   cartQuantity: number; // Total de itens no carrinho
   cartItemsTotal: number; // Total do valor dos itens no carrinho
   addCoffeeToCart: (coffee: CartItem) => void; // Função para adicionar um item ao carrinho
+
   changeCartItemQuantity: (
     cartItemId: number,
     type: "increase" | "decrease"
@@ -26,9 +27,8 @@ interface CartContextProviderProps {
   children: ReactNode; // Componentes filhos
 }
 
-const COFFEE_ITEMS_STORAGE_KEY = "coffeeDelivery:cartItems"; // Chave para armazenar no localStorage
+const COFFEE_ITEMS_STORAGE_KEY = "coffeeDelivery:cartItems";
 
-// Criação do contexto do carrinho
 export const CartContext = createContext({} as CartContextType);
 
 // Componente provedor do contexto do carrinho

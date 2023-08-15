@@ -1,6 +1,6 @@
 import { Clock, CurrencyDollar, MapPin } from "phosphor-react";
 import { useTheme } from "styled-components";
-import Illustration from "../../assests/Illustration.svg";
+import Illustration from "../../assets/Illustration.svg";
 import { InfoWithIcon } from "../../components/InfoWithIcon";
 import { RegularText, TitleText } from "../Home/components/intro/styles";
 import { OrderConfirmedContainer, OrderDetailsContainer } from "./styles";
