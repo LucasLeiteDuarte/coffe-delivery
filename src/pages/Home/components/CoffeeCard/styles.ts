@@ -45,13 +45,13 @@ span{
 
   background: ${({theme})=> theme.colors["brand-yellow-light"]};
   color: ${({theme})=> theme.colors["brand-yellow-dark"]};
-  font-size: ${({theme})=> theme.textSizes["componentes-tag"]}
+  font-size: ${({theme})=> theme.textSizes["components-tag"]}
 }
 `;
 
 export const Name = styled(TitleText).attrs({
   size:"S",
-  color: "subititle",
+  color: "subtitle",
   weight: "700",
 })`
   margin-bottom: 0.5rem;
