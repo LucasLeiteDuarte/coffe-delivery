@@ -1,4 +1,4 @@
-import { forwardRef, InputHTMLAttributes } from "react"; // Importa a função forwardRef e as tipagens de atributos de input do React
+import { forwardRef, InputHTMLAttributes } from "react";
 import { RegularText } from "../../pages/Home/components/intro/styles";
 import {
   InputStyleContainer,
@@ -13,7 +13,6 @@ type InputProps = InputHTMLAttributes<HTMLInputElement> & {
   rightText?: string;
 };
 
-// O componente Input é definido com a função forwardRef para aceitar uma ref
 export const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ error, rightText, className, ...props }, ref) => {
     return (

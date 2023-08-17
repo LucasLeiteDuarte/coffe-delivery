@@ -6,7 +6,7 @@ import { HeaderButton, HeaderButtonsContainer, HeaderContainer } from "./styles"
 
 export function Header() {
 
-  const { cartQuantity } = useCart(); // Obtém a quantidade de itens no carrinho usando o hook useCart
+  const { cartQuantity } = useCart();
 
   return (
     <HeaderContainer>

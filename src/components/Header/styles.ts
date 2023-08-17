@@ -15,13 +15,11 @@ background: ${({theme})=> theme.colors["base-background"]};
   align-items: center;
   justify-content: space-between;
 }
-// serve para o header se manter fixo no pagina
+
 position: sticky;
 top: 0;
 left: 0;
 z-index: 5;
-
-
 
 `;
 
@@ -35,7 +33,7 @@ export const HeaderButtonsContainer = styled.div`
 interface HeaderButtonProps{
   variant: "purple" | "yellow"
 }
-// o headerbutton recebe a interfeace com as variantes<HeaderButtonProps> e assim pode aplicar seus theme
+
 export const HeaderButton = styled.button<HeaderButtonProps>`
   display: flex;
   align-items: center;

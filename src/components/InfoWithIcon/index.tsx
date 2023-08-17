@@ -1,10 +1,9 @@
-import { ReactNode } from 'react'; // Importa o tipo ReactNode do React
-import { IconContainer, InfoWithIconContainer } from "./styles"; // Importa os componentes estilizados
+import { ReactNode } from 'react';
+import { IconContainer, InfoWithIconContainer } from "./styles";
 
-// Interface para as propriedades do componente InfoWithIcon
 interface InfoWithIconProps {
-  icon: ReactNode; // O ícone a ser exibido, que pode ser qualquer nó React
-  text: string | ReactNode; // O texto a ser exibido, que pode ser uma string ou um nó React
+  icon: ReactNode;
+  text: string | ReactNode;
   iconBg: string;
 }
 
