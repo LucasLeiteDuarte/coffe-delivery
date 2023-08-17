@@ -1,8 +1,9 @@
 import { MapPin, ShoppingCart } from 'phosphor-react';
 import { NavLink } from 'react-router-dom';
-import coffelogo from '../../assets/Logo.svg';
+import coffelogo from '../../assests/Logo.svg';
 import { useCart } from '../../hooks/useCart';
 import { HeaderButton, HeaderButtonsContainer, HeaderContainer } from "./styles";
+
 export function Header() {
 
   const { cartQuantity } = useCart(); // Obtém a quantidade de itens no carrinho usando o hook useCart

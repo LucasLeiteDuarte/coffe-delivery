@@ -1,7 +1,5 @@
 import styled from "styled-components";
-import introBack from "../../../../assets/IntroBack.png";
-
-
+import introBack from "../../../../assests/IntroBack.png";
 
 export const IntroContainer = styled.section`
   display: flex;
@@ -54,7 +52,7 @@ export const RegularText = styled.p<RegularTextProps>`
 `;
 
 export const IntroTitle = styled(TitleText)`
-margin-bottom:1rem;
+  margin-bottom:1rem;
 `;
   
 export const BenefitsContainer = styled.div `

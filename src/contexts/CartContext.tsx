@@ -2,7 +2,6 @@ import { produce } from "immer"; //A biblioteca immer é utilizada para produzir
 import { ReactNode, createContext, useEffect, useState } from "react";
 import { Coffee } from "../pages/Home/components/CoffeeCard";
 
-
 export interface CartItem extends Coffee {
   quantity: number; // Quantidade de um determinado item no carrinho
 }
@@ -13,7 +12,6 @@ interface CartContextType {
   cartQuantity: number; // Total de itens no carrinho
   cartItemsTotal: number; // Total do valor dos itens no carrinho
   addCoffeeToCart: (coffee: CartItem) => void; // Função para adicionar um item ao carrinho
-
   changeCartItemQuantity: (
     cartItemId: number,
     type: "increase" | "decrease"
@@ -21,6 +19,8 @@ interface CartContextType {
   removeCartItem: (cartItemId: number) => void; // Função para remover um item do carrinho
   cleanCart: () => void; // Função para limpar o carrinho
 }
+// Componente provedor do contexto do carrinho
+export const CartContext = createContext({} as CartContextType);
 
 // Interface para os props do provedor do contexto do carrinho
 interface CartContextProviderProps {
@@ -29,9 +29,6 @@ interface CartContextProviderProps {
 
 const COFFEE_ITEMS_STORAGE_KEY = "coffeeDelivery:cartItems";
 
-export const CartContext = createContext({} as CartContextType);
-
-// Componente provedor do contexto do carrinho
 export function CartContextProvider({ children }: CartContextProviderProps) {
   // Estado local para os itens no carrinho
   const [cartItems, setCartItems] = useState<CartItem[]>(() => {
@@ -47,8 +44,8 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
   const cartQuantity = cartItems.length;
 
   // Calcula o valor total dos itens no carrinho
-  const cartItemsTotal = cartItems.reduce((total, CartItem) => {
-    return total + CartItem.price * CartItem.quantity;
+  const cartItemsTotal = cartItems.reduce((total, cartItem) => {
+    return total + cartItem.price * cartItem.quantity;
   }, 0);
 
   // Função para adicionar um item ao carrinho

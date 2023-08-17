@@ -7,7 +7,7 @@ import { ConfirmationSectionContainer } from "./styles";
 const DELIVERY_PRICE = 3.5;
 
 export function ConfirmationSection() {
-  const { cartItemsTotal, cartQuantity } = useCart();
+  const { cartItemsTotal } = useCart();
   const cartTotal = DELIVERY_PRICE + cartItemsTotal;
 
   const formatedItemstotal = formatMoney(cartItemsTotal);

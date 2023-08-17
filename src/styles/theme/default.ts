@@ -30,9 +30,9 @@ export const defaultTheme = {
     "text-bold-M": "1rem",
     "text-regular-S": "0.875rem",
     "text-bold-S": "0.75rem",
-    "componentes-tag": "0.625rem",
-    "componentes-button-G": "0.875rem",
-    "componentes-button-S": "0.75rem"
+    "components-tag": "0.625rem",
+    "components-button-G": "0.875rem",
+    "components-button-S": "0.75rem"
   },
   fonts: {
     regular: "'Roboto'",

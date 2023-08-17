@@ -4,7 +4,7 @@ import { IconWrapper, QuantityInputContainer } from "./styles";
 
 interface QuantityInputProps {
   size?: "medium" | "small";
-  quantity: number; // Quantidade atual
+  quantity: number;
   onDecrease: () => void;
   onIncrease: () => void;
 }
@@ -18,8 +18,7 @@ export function QuantityInput({
 }: QuantityInputProps) {
   return (
     <QuantityInputContainer size={size}>
-
-      <IconWrapper onClick={onDecrease}>
+      <IconWrapper onClick={onDecrease} disabled={quantity <= 1}>
         <Minus size={14} weight="fill" />
       </IconWrapper>
 

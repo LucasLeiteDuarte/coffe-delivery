@@ -10,7 +10,6 @@ interface CoffeeCartCardProps {
   coffee: CartItem;
 }
 
-
 export function CoffeeCartCard({ coffee }: CoffeeCartCardProps) {
   const { changeCartItemQuantity, removeCartItem } = useCart();
 
@@ -19,8 +18,7 @@ export function CoffeeCartCard({ coffee }: CoffeeCartCardProps) {
   }
 
   function handleDecrease() {
-    if (coffee.quantity > 0)
-      changeCartItemQuantity(coffee.id, "decrease");
+    changeCartItemQuantity(coffee.id, "decrease");
   }
 
   function handleRemove() {
@@ -51,7 +49,7 @@ export function CoffeeCartCard({ coffee }: CoffeeCartCardProps) {
         </div>
       </div>
       <p>
-        {formattedPrice}
+        R$ {formattedPrice}
       </p>
     </CoffeeCartCardContainer>
   )

@@ -21,7 +21,7 @@ interface CoffeeCardProps {
 }
 
 export function CoffeeCard({ coffee }: CoffeeCardProps) {
-  const [quantity, setQuantity] = useState<number>(0);
+  const [quantity, setQuantity] = useState<number>(1);
 
   function handleIncrease() {
     setQuantity((state) => state + 1)
@@ -75,7 +75,7 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
             onDecrease={handleDecrease}
             quantity={quantity}
           />
-          <button onClick={handleAddToCart} >
+          <button onClick={handleAddToCart} disabled={quantity === 0}>
             <ShoppingCart size={22} weight="fill" />
           </button>
         </AddCartWrapper>

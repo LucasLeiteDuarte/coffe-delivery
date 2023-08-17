@@ -5,7 +5,7 @@ export const ButtonContainer = styled.button`
   
   color: ${({theme})=>theme.colors["base-white"]};
   background: ${({theme})=> theme.colors["brand-yellow"]};
-  font-size: ${({theme})=> theme.textSizes["componentes-button-G"]};
+  font-size: ${({theme})=> theme.textSizes["components-button-G"]};
   font-weight: 700;
 
   border: none;
