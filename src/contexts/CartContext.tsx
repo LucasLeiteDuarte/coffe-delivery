@@ -1,11 +1,10 @@
 import { produce } from "immer";
-import { ReactNode, createContext, useEffect, useState } from "react";
+import { createContext, ReactNode, useEffect, useState } from "react";
 import { Coffee } from "../pages/Home/components/CoffeeCard";
 
 export interface CartItem extends Coffee {
   quantity: number;
 }
-
 
 interface CartContextType {
   cartItems: CartItem[];
@@ -29,9 +28,7 @@ interface CartContextProviderProps {
 const COFFEE_ITEMS_STORAGE_KEY = "coffeeDelivery:cartItems";
 
 export function CartContextProvider({ children }: CartContextProviderProps) {
-
   const [cartItems, setCartItems] = useState<CartItem[]>(() => {
-
     const storedCartItems = localStorage.getItem(COFFEE_ITEMS_STORAGE_KEY);
     if (storedCartItems) {
       return JSON.parse(storedCartItems);
@@ -51,51 +48,42 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     );
 
     const newCart = produce(cartItems, (draft) => {
-
       if (coffeeAlreadyExistsInCart < 0) {
         draft.push(coffee);
       } else {
-
         draft[coffeeAlreadyExistsInCart].quantity += coffee.quantity;
       }
     });
 
-
     setCartItems(newCart);
   }
-
 
   function changeCartItemQuantity(
     cartItemId: number,
     type: "increase" | "decrease"
   ) {
-
     const newCart = produce(cartItems, (draft) => {
       const coffeeExistsInCart = cartItems.findIndex(
         (cartItem) => cartItem.id === cartItemId
       );
+
       if (coffeeExistsInCart >= 0) {
         const item = draft[coffeeExistsInCart];
-
         draft[coffeeExistsInCart].quantity =
           type === "increase" ? item.quantity + 1 : item.quantity - 1;
       }
     });
 
-
     setCartItems(newCart);
   }
 
-
   function removeCartItem(cartItemId: number) {
-
     const newCart = produce(cartItems, (draft) => {
       const coffeeExistsInCart = cartItems.findIndex(
         (cartItem) => cartItem.id === cartItemId
       );
 
       if (coffeeExistsInCart >= 0) {
-
         draft.splice(coffeeExistsInCart, 1);
       }
     });
@@ -115,11 +103,11 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     <CartContext.Provider
       value={{
         cartItems,
-        cartQuantity,
-        cartItemsTotal,
         addCoffeeToCart,
+        cartQuantity,
         changeCartItemQuantity,
         removeCartItem,
+        cartItemsTotal,
         cleanCart,
       }}
     >

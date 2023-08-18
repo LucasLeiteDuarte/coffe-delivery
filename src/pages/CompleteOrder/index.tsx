@@ -3,7 +3,6 @@ import { FormProvider, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import * as zod from "zod";
 import { useCart } from "../../hooks/useCart";
-
 import { CompleteOrderForm } from "./componentes/CompleteOrderForm";
 import { SelectedCoffees } from "./componentes/SelectedCoffees";
 import { CompleteOrderContainer } from "./styles";
@@ -16,7 +15,7 @@ enum PaymentMethods {
 
 const confirmOrderFormValidationSchema = zod.object({
   cep: zod.string().min(1, "Informe o CEP"),
-  street: zod.string().min(1, "Informe o Rua"),
+  street: zod.string().min(1, "Informe a Rua"),
   number: zod.string().min(1, "Informe o Número"),
   complement: zod.string(),
   district: zod.string().min(1, "Informe o Bairro"),

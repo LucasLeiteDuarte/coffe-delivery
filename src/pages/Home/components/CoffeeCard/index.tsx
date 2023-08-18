@@ -1,5 +1,7 @@
 import { ShoppingCart } from "phosphor-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { QuantityInput } from "../../../../components/QuantityInput";
 import { useCart } from "../../../../hooks/useCart";
 import { formatMoney } from "../../../../utils/FormatMoney";
@@ -20,27 +22,34 @@ interface CoffeeCardProps {
 }
 
 export function CoffeeCard({ coffee }: CoffeeCardProps) {
+  const { cartItems, addCoffeeToCart } = useCart();
   const [quantity, setQuantity] = useState<number>(1);
 
-  function handleIncrease() {
-    setQuantity((state) => state + 1)
-  }
-  function handleDecrease() {
-    if (quantity > 0) {
-      setQuantity((state) => state - 1)
+  useEffect(() => {
+    const existingCartItem = cartItems.find(item => item.id === coffee.id);
+    if (existingCartItem) {
+      setQuantity(existingCartItem.quantity);
     }
+  }, [cartItems, coffee.id]);
+
+  function handleIncrease() {
+    setQuantity((state) => state + 1);
   }
 
-  const { addCoffeeToCart } = useCart();
+  function handleDecrease() {
+    setQuantity((state) => (state > 1 ? state - 1 : state));
+  }
 
   function handleAddToCart() {
-
     const coffeeToAdd = {
       ...coffee,
       quantity
-    }
+    };
 
-    addCoffeeToCart(coffeeToAdd)
+    addCoffeeToCart(coffeeToAdd);
+    toast.success(`${quantity} ${coffee.name}${quantity > 1 ? 's' : ''} foram adicionado${quantity > 1 ? 's' : ''} ao carrinho!`, {
+      position: "top-center"
+    });
   }
 
   const formattedPrice = formatMoney(coffee.price);
@@ -72,7 +81,7 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
             onDecrease={handleDecrease}
             quantity={quantity}
           />
-          <button onClick={handleAddToCart} disabled={quantity === 0}>
+          <button onClick={handleAddToCart} >
             <ShoppingCart size={22} weight="fill" />
           </button>
         </AddCartWrapper>

@@ -1,4 +1,6 @@
 import { Trash } from "phosphor-react";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { QuantityInput } from "../../../../components/QuantityInput";
 import { CartItem } from "../../../../contexts/CartContext";
 import { useCart } from "../../../../hooks/useCart";
@@ -23,7 +25,11 @@ export function CoffeeCartCard({ coffee }: CoffeeCartCardProps) {
 
   function handleRemove() {
     removeCartItem(coffee.id);
+    toast.error(`${coffee.name} foi removido do carrinho.`, {
+      position: "top-center"
+    });
   }
+
   const coffeeTotal = coffee.price * coffee.quantity;
 
   const formattedPrice = formatMoney(coffeeTotal);
