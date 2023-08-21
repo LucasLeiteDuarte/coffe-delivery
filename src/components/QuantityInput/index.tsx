@@ -1,14 +1,12 @@
 import { Minus, Plus } from "phosphor-react";
 import { IconWrapper, QuantityInputContainer } from "./styles";
 
-
 interface QuantityInputProps {
   size?: "medium" | "small";
   quantity: number;
   onDecrease: () => void;
   onIncrease: () => void;
 }
-
 
 export function QuantityInput({
   onIncrease,

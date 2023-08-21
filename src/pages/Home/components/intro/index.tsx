@@ -1,9 +1,9 @@
-
 import { Coffee, Package, ShoppingCart, Timer } from "phosphor-react";
 import { useTheme } from "styled-components";
-import introImg from "../../../../assests/intro-img.svg";
+import introImg from "../../../../assets/intro-img.svg";
 import { InfoWithIcon } from "../../../../components/InfoWithIcon";
-import { BenefitsContainer, IntroContainer, IntroContent, IntroTitle, RegularText } from "./styles";
+import { RegularText } from "../../../../components/Typography";
+import { BenefitsContainer, IntroContainer, IntroContent, IntroTitle, } from "./styles";
 
 export function Intro() {
   const { colors } = useTheme();
@@ -12,10 +12,10 @@ export function Intro() {
       <IntroContent className="container">
         <div>
           <section>
-            <IntroTitle size="XL">
+            <IntroTitle size="xl">
               Encontre o café perfeito para qualquer hora do dia
             </IntroTitle>
-            <RegularText size="L">
+            <RegularText size="l">
               Com o Coffee Delivery você recebe seu café onde estiver, a qualquer hora
             </RegularText>
           </section>

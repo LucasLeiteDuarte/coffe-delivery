@@ -23,7 +23,7 @@ export const AddressFormContainer = styled.div`
   grid-auto-flow: dense;
 
   .cep {
-    grid-column: span 3; 
+    grid-column: span 3;
     max-width: 12.5rem;
   }
 
@@ -32,7 +32,7 @@ export const AddressFormContainer = styled.div`
   }
 
   .complement {
-    grid-column: span 2;//span para espandir duas colunas á patirar da que ele está
+    grid-column: span 2;
   }
 `;
 

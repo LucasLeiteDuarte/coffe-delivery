@@ -1,5 +1,5 @@
 import { forwardRef, InputHTMLAttributes } from "react";
-import { RegularText } from "../../pages/Home/components/intro/styles";
+import { RegularText } from "../Typography";
 import {
   InputStyleContainer,
   InputStyled,
@@ -23,7 +23,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           {rightText && <RightText>{rightText}</RightText>}
         </InputStyleContainer>
 
-        {error && <RegularText size="S">{error}</RegularText>}
+        {error && <RegularText size="s">{error}</RegularText>}
       </InputWrapper>
     );
   }

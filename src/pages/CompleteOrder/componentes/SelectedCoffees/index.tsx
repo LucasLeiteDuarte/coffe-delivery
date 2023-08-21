@@ -1,6 +1,7 @@
 
+import { TitleText } from "../../../../components/Typography";
 import { useCart } from "../../../../hooks/useCart";
-import { TitleText } from "../../../Home/components/intro/styles";
+
 import { CoffeeCartCard } from "../CoffeeCartCard";
 import { ConfirmationSection } from "./ConfirmationSection";
 import { DetailsContainer, SelectedCoffeesContainer } from "./styles";
@@ -10,7 +11,7 @@ export function SelectedCoffees() {
 
   return (
     <SelectedCoffeesContainer>
-      <TitleText size="XS" color="subtitle">
+      <TitleText size="xs" color="subtitle">
         Cafés selecionados
       </TitleText>
 

@@ -2,11 +2,11 @@ import { Clock, CurrencyDollar, MapPin } from "phosphor-react";
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useTheme } from "styled-components";
-import Illustration from "../../assests/Illustration.svg";
+import Illustration from "../../assets/Illustration.svg";
 import { InfoWithIcon } from "../../components/InfoWithIcon";
+import { RegularText, TitleText } from "../../components/Typography";
 import { OrderData } from "../CompleteOrder";
 import { paymentMethods } from "../CompleteOrder/componentes/CompleteOrderForm/PaymentMethodOptions";
-import { RegularText, TitleText } from "../Home/components/intro/styles";
 import { OrderConfirmedContainer, OrderDetailsContainer } from "./styles";
 
 interface LocationType {
@@ -31,10 +31,10 @@ export function OrderConfirmedPage() {
   return (
     <OrderConfirmedContainer className="container">
       <div>
-        <TitleText size="L">
+        <TitleText size="l">
           Uhu! Pedido confirmado
         </TitleText>
-        <RegularText size="L" color="subtitle">
+        <RegularText size="l" color="subtitle">
           Agora é só esperar que logo o café chegará até você
         </RegularText>
       </div>

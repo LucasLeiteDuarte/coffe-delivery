@@ -5,7 +5,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { QuantityInput } from "../../../../components/QuantityInput";
 import { useCart } from "../../../../hooks/useCart";
 import { formatMoney } from "../../../../utils/FormatMoney";
-import { RegularText, TitleText } from "../intro/styles";
+
+import { RegularText, TitleText } from "../../../../components/Typography";
 import { AddCartWrapper, CardFooter, CoffeeCardContainer, Description, Name, Tags } from "./styles";
 
 export interface Coffee {
@@ -69,8 +70,8 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
       <CardFooter>
 
         <div>
-          <RegularText size="S">R$</RegularText>
-          <TitleText size="M" color="text">
+          <RegularText size="s">R$</RegularText>
+          <TitleText size="m" color="text">
             {formattedPrice}
           </TitleText>
         </div>

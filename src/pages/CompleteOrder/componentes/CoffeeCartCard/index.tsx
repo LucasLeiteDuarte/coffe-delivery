@@ -2,10 +2,10 @@ import { Trash } from "phosphor-react";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { QuantityInput } from "../../../../components/QuantityInput";
+import { RegularText } from "../../../../components/Typography";
 import { CartItem } from "../../../../contexts/CartContext";
 import { useCart } from "../../../../hooks/useCart";
 import { formatMoney } from "../../../../utils/FormatMoney";
-import { RegularText } from "../../../Home/components/intro/styles";
 import { ActionsContainer, CoffeeCartCardContainer, RemoveButton } from "./styles";
 
 interface CoffeeCartCardProps {
