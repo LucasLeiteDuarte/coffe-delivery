@@ -34,7 +34,7 @@ export function OrderConfirmedPage() {
         <TitleText size="l">
           Uhu! Pedido confirmado
         </TitleText>
-        <RegularText size="l" color="subtitle">
+        <RegularText size="l" color="subtitle" className="textNow">
           Agora é só esperar que logo o café chegará até você
         </RegularText>
       </div>
