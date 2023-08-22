@@ -7,6 +7,10 @@ export const CompleteOrderContainer = styled.form`
   display: flex;
   justify-content: space-between;
   gap: 2rem;
+  @media (max-width: 900px){
+    display:block;
+  }
+
 `;
 
 export const SectionBaseStyle = styled.div`
