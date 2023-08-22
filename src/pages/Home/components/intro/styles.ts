@@ -5,17 +5,27 @@ import { TitleText } from "../../../../components/Typography";
 export const IntroContainer = styled.section`
   width: 100%;
   height: 34rem;
-
-  background: ${({ theme }) => `url(${introBackgroundImg}) no-repeat center,
-    ${theme.colors["base-background"]} 100%
-    `};
+  background: ${({ theme }) => `url(${introBackgroundImg}) repeat center,
+  ${theme.colors["base-background"]} 100%`};
   background-size: cover;
-
   display: flex;
   align-items: center;
   justify-content: center;
 
+ @media (max-width: 830px) {
+    height: auto;
 
+  }
+  @media(max-width: 830px){
+  .container{
+    flex-direction:column;
+    text-align:center;}
+  }
+  @media(max-width: 830px){
+    img{
+      order: -1;
+    }
+  }
 `;
 
 export const IntroContent = styled.div`
@@ -24,6 +34,7 @@ export const IntroContent = styled.div`
   align-items: center;
   justify-content: space-between;
   gap: 3.5rem;
+
 `;
 
 export const IntroTitle = styled(TitleText)`
@@ -35,5 +46,10 @@ export const BenefitsContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   row-gap: 1.25rem;
-  margin-top: 4.125rem;
+  margin-top: 2rem;
+  @media (min-width: 769px) {
+    gap: 2rem;
+    margin-top: 4.125rem;
+  }
+
 `;

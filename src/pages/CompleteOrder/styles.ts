@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const CompleteOrderContainer = styled.form`
   width: 100%;
+  max-width: 1150px;
   margin-top: 2.5rem;
   display: flex;
   justify-content: space-between;
