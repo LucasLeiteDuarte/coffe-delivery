@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const LayoutContainer = styled.div`
   .container {
     width: 100%;
-    max-width: 1163px;
+    max-width: 1160px;
     margin-right: auto;
     margin-left: auto;
   }
