@@ -12,13 +12,13 @@ export const CoffeeList = styled.div`
   gap: 2rem;
   margin-top: 3.5rem;
 
-  @media (min-width: 474px) {
+  @media (min-width: 525px) {
     grid-template-columns: repeat(2, 1fr);
   }
-  @media (min-width: 650px) {
+  @media (min-width: 800px) {
     grid-template-columns: repeat(3, 1fr);
   }
-  @media (min-width: 875px) {
+  @media (min-width: 1077px) {
     grid-template-columns: repeat(4, 1fr);
   }
 

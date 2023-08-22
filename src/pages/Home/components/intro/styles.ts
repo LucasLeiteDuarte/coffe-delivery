@@ -6,22 +6,23 @@ export const IntroContainer = styled.section`
   width: 100%;
   height: 34rem;
   background: ${({ theme }) => `url(${introBackgroundImg}) repeat center,
-  ${theme.colors["base-background"]} 100%`};
+  ${theme.colors["base-background"]} 100%
+`};
   background-size: cover;
   display: flex;
   align-items: center;
   justify-content: center;
 
- @media (max-width: 830px) {
+ @media (max-width: 1015px) {
     height: auto;
 
   }
-  @media(max-width: 830px){
+  @media(max-width: 1015px){
   .container{
     flex-direction:column;
     text-align:center;}
   }
-  @media(max-width: 830px){
+  @media(max-width: 1015px){
     img{
       order: -1;
     }
