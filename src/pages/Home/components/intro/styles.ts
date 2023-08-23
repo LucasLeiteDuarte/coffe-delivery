@@ -13,9 +13,7 @@ export const IntroContainer = styled.section`
   align-items: center;
   justify-content: center;
 
-  img{
-    margin-right: 10px;
-  }
+  
 
  @media (max-width: 1015px) {
     height: auto;
@@ -28,8 +26,10 @@ export const IntroContainer = styled.section`
   @media(max-width: 1015px){
     img{
       order: -1;
+      width: 390px;
     }
   }
+ 
 `;
 
 export const IntroContent = styled.div`
@@ -43,6 +43,7 @@ export const IntroContent = styled.div`
 
 export const IntroTitle = styled(TitleText)`
   margin-bottom: 1rem;
+  
 `;
 
 export const BenefitsContainer = styled.div`
