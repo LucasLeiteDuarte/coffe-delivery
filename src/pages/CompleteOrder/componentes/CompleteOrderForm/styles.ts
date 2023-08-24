@@ -6,8 +6,6 @@ export const CompleteOrderFormContainer = styled.div`
   flex-direction: column;
   gap: 0.75rem;
   width:640px;
-  
-
 `;
 
 export const FormSectionContainer = styled(SectionBaseStyle)`
@@ -23,14 +21,17 @@ export const AddressFormContainer = styled.div`
   column-gap: 0.75rem;
   row-gap: 1rem;
   grid-auto-flow: dense;
+
   @media (max-width: 1015px){
     display:block;
   }
-  
 
   .cep {
     grid-column: span 3;
     max-width: 12.5rem;
+    @media (max-width: 1015px){
+    max-width:100%;
+  }
   }
 
   .street {
