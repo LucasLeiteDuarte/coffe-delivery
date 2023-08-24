@@ -1,4 +1,5 @@
 import { Coffee, Package, ShoppingCart, Timer } from "phosphor-react";
+import { useMediaQuery } from "react-responsive";
 import { useTheme } from "styled-components";
 import introImg from "../../../../assets/intro-img.svg";
 import { InfoWithIcon } from "../../../../components/InfoWithIcon";
@@ -7,15 +8,17 @@ import { BenefitsContainer, IntroContainer, IntroContent, IntroTitle, } from "./
 
 export function Intro() {
   const { colors } = useTheme();
+  const isMobile = useMediaQuery({ maxWidth: 600 });
+
   return (
     <IntroContainer>
       <IntroContent className="container">
         <div>
           <section>
-            <IntroTitle size="xl">
+            <IntroTitle size={isMobile ? "l" : "xl"}>
               Encontre o café perfeito para qualquer hora do dia
             </IntroTitle>
-            <RegularText size="l">
+            <RegularText size={isMobile ? "m" : "l"}>
               Com o Coffee Delivery você recebe seu café onde estiver, a qualquer hora
             </RegularText>
           </section>

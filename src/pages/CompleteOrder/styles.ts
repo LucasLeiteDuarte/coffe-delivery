@@ -1,15 +1,14 @@
 import styled from "styled-components";
 
 export const CompleteOrderContainer = styled.form`
-  width: 90%;
-  max-width: 1150px;
+  width: 100%;
   margin-top: 2.5rem;
   display: flex;
   justify-content: space-between;
   gap: 2rem;
   @media (max-width: 1015px){
     display:block;
-  }
+  } 
 
 `;
 
