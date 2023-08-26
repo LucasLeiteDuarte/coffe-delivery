@@ -8,14 +8,14 @@
 <a name="description"></a>
 ## 🧾 Descrição
 
-Foi desenvolvido atraves do desafio da rocketseat no curso ignite.<br/>
+ Foi desenvolvido atraves do desafio da rocketseat no curso ignite.<br/>
 Desafio: Coffee Delivery
 
 <br/>
 
 <a name="features"></a>
 ## 📖 Funcionalidades
-uma aplicação de uma delivery de café, que contém as seguintes funcionalidades:
+ Uma aplicação de uma delivery de café, que contém as seguintes funcionalidades:
 
 - Adicionar cafés ao carrinho.
 - Adicionar e remove cafés de dentro do carrinho.
