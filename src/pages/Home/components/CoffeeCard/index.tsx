@@ -48,7 +48,7 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
     };
 
     addCoffeeToCart(coffeeToAdd);
-    toast.success(`${quantity} ${coffee.name}${quantity > 1 ? 's' : ''} foram adicionado${quantity > 1 ? 's' : ''} ao carrinho!`, {
+    toast.success(` (${quantity}) ${coffee.name} adicionado ao carrinho!`, {
       position: "top-center"
     });
   }
