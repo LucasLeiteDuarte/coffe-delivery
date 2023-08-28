@@ -12,10 +12,14 @@ export const FormSectionContainer = styled(SectionBaseStyle)`
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  @media (max-width: auto){
+    max-width:600px;
+  }
+
 `;
 
 export const AddressFormContainer = styled.div`
-  width: 100%;
+  width:100%;
   display: grid;
   grid-template-columns: 12.5rem 17.25rem 3.75rem;
   column-gap: 0.75rem;
